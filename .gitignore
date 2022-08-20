@@ -5,6 +5,8 @@ types/
 
 .eslintcache
 
+src/generated/
+
 .yarn/*
 !.yarn/patches
 !.yarn/releases

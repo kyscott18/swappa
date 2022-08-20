@@ -1,9 +1,9 @@
 import type Web3 from "web3";
 
-import type { ILendingPoolAddressesProviderV2 } from "../../types/web3-v1-contracts/ILendingPoolAddressesProviderV2";
-import { ABI as ILendingPoolAddressesProviderV2ABI } from "../../types/web3-v1-contracts/ILendingPoolAddressesProviderV2";
-import type { ILendingPoolV2 } from "../../types/web3-v1-contracts/ILendingPoolV2";
-import { ABI as ILendingPoolV2ABI } from "../../types/web3-v1-contracts/ILendingPoolV2";
+import { abi as ILendingPoolAddressesProviderV2ABI } from "../../build/contracts/ILendingPoolAddressesProviderV2.json";
+import { abi as ILendingPoolV2ABI } from "../../build/contracts/ILendingPoolV2.json";
+import type { ILendingPoolAddressesProviderV2 } from "../generated/ILendingPoolAddressesProviderV2";
+import type { ILendingPoolV2 } from "../generated/ILendingPoolV2";
 import type { Address } from "../pair";
 import { PairATokenV2 } from "../pairs/atoken-v2";
 import { Registry } from "../registry";

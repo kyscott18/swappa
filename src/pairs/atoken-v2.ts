@@ -1,9 +1,9 @@
 import type BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
+import { abi as ILendingPoolV2ABI } from "../../build/contracts/ILendingPoolV2.json";
 import { address as pairATokenV2Address } from "../../tools/deployed/mainnet.PairATokenV2.addr.json";
-import type { ILendingPoolV2 } from "../../types/web3-v1-contracts/ILendingPoolV2";
-import { ABI as ILendingPoolV2ABI } from "../../types/web3-v1-contracts/ILendingPoolV2";
+import type { ILendingPoolV2 } from "../generated/ILendingPoolV2";
 import type { MultiCallPayload } from "../multicall";
 import type { Address, PairDescriptor, Snapshot } from "../pair";
 import { Pair } from "../pair";

@@ -1,11 +1,11 @@
 import BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
+import { abi as Ierc20ABI } from "../../build/contracts/IERC20.json";
+import { abi as SwapABI } from "../../build/contracts/ISymmetricSwap.json";
 import { address as pairSymmetricSwapAddress } from "../../tools/deployed/mainnet.PairSymmetricSwap.addr.json";
-import type { Ierc20 } from "../../types/web3-v1-contracts/IERC20";
-import { ABI as Ierc20ABI } from "../../types/web3-v1-contracts/IERC20";
-import type { ISymmetricSwap } from "../../types/web3-v1-contracts/ISymmetricSwap";
-import { ABI as SwapABI } from "../../types/web3-v1-contracts/ISymmetricSwap";
+import type { IERC20 } from "../generated/IERC20";
+import type { ISymmetricSwap } from "../generated/ISymmetricSwap";
 import type { MultiCallPayload } from "../multicall";
 import { convertResultToAddress, convertResultToBigNumber } from "../multicall";
 import type {
@@ -30,8 +30,8 @@ export class PairSymmetricSwap extends Pair {
   private swapPool: ISymmetricSwap;
 
   private paused = false;
-  private ercA: Ierc20;
-  private ercB: Ierc20;
+  private ercA: IERC20;
+  private ercB: IERC20;
   private balanceA: BigNumber = ZERO;
   private balanceB: BigNumber = ZERO;
 
@@ -50,8 +50,8 @@ export class PairSymmetricSwap extends Pair {
       SwapABI,
       swapPoolAddr
     ) as unknown as ISymmetricSwap;
-    this.ercA = new web3.eth.Contract(Ierc20ABI, tokenA) as unknown as Ierc20;
-    this.ercB = new web3.eth.Contract(Ierc20ABI, tokenB) as unknown as Ierc20;
+    this.ercA = new web3.eth.Contract(Ierc20ABI, tokenA) as unknown as IERC20;
+    this.ercB = new web3.eth.Contract(Ierc20ABI, tokenB) as unknown as IERC20;
   }
 
   protected async _init() {

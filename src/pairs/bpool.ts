@@ -1,9 +1,9 @@
 import BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
+import { abi as BPoolABI } from "../../build/contracts/IBPool.json";
 import { address as pairBPoolAddress } from "../../tools/deployed/mainnet.PairBPool.addr.json";
-import type { IbPool } from "../../types/web3-v1-contracts/IBPool";
-import { ABI as BPoolABI } from "../../types/web3-v1-contracts/IBPool";
+import type { IBPool } from "../generated/IBPool";
 import type { MultiCallPayload } from "../multicall";
 import type { Address, BigNumberString, Snapshot } from "../pair";
 import { Pair } from "../pair";
@@ -20,7 +20,7 @@ interface PairBPoolSnapshot extends Snapshot {
 
 export class PairBPool extends Pair {
   allowRepeats = false;
-  private bPool: IbPool;
+  private bPool: IBPool;
   private swapFee: BigNumber = ZERO;
   private weightA: BigNumber = ZERO;
   private weightB: BigNumber = ZERO;
@@ -35,7 +35,7 @@ export class PairBPool extends Pair {
     public tokenB: Address
   ) {
     super(selectAddress(chainId, { mainnet: pairBPoolAddress }));
-    this.bPool = new web3.eth.Contract(BPoolABI, poolAddr) as unknown as IbPool;
+    this.bPool = new web3.eth.Contract(BPoolABI, poolAddr) as unknown as IBPool;
   }
 
   protected async _init() {

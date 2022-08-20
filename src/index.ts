@@ -1,8 +1,6 @@
+export { abi as SwappaRouterABI } from "../build/contracts/SwappaRouterV1.json";
 export { address as swappaRouterV1Address } from "../tools/deployed/mainnet.SwappaRouterV1.addr.json";
-export {
-  SwappaRouterV1,
-  ABI as SwappaRouterV1ABI,
-} from "../types/web3-v1-contracts/SwappaRouterV1";
+export { SwappaRouterV1 } from "./generated/SwappaRouterV1";
 export * from "./pair";
 export * from "./registries/aave";
 export * from "./registries/mento";

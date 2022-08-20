@@ -6,8 +6,8 @@ import type BigNumber from "bignumber.js";
 import invariant from "tiny-invariant";
 import type Web3 from "web3";
 
-import type { SwappaRouterV1 } from "../types/web3-v1-contracts/SwappaRouterV1";
-import { ABI as SwappaRouterABI } from "../types/web3-v1-contracts/SwappaRouterV1";
+import { abi as SwappaRouterABI } from "../build/contracts/SwappaRouterV1.json";
+import type { SwappaRouterV1 } from "./generated/SwappaRouterV1";
 import type { MultiCallPayload } from "./multicall";
 import { multicallMultipleContractMultipleData } from "./multicall";
 import type { Address, BootInfo, Pair, PairDescriptor } from "./pair";

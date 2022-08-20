@@ -1,10 +1,10 @@
 import BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
+import { abi as Erc20ABI } from "../../build/contracts/ERC20.json";
+import { abi as PairABI } from "../../build/contracts/IUniswapV2Pair.json";
 import { address as pairUniswapV2Address } from "../../tools/deployed/mainnet.PairUniswapV2.addr.json";
-import { ABI as Erc20ABI } from "../../types/web3-v1-contracts/ERC20";
-import type { IUniswapV2Pair } from "../../types/web3-v1-contracts/IUniswapV2Pair";
-import { ABI as PairABI } from "../../types/web3-v1-contracts/IUniswapV2Pair";
+import type { IUniswapV2Pair } from "../generated/IUniswapV2Pair";
 import type { MultiCallPayload } from "../multicall";
 import type {
   Address,

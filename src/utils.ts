@@ -1,11 +1,11 @@
 import { concurrentMap } from "@celo/utils/lib/async";
 import { Interface } from "@ethersproject/abi";
 
+import { abi as ERC20ABI } from "../build/contracts/ERC20.json";
+import { abi as BalanceV1ABI } from "../build/contracts/ISymmetricSwap.json";
+import { abi as XYeqKABI } from "../build/contracts/IUniswapV2Pair.json";
 // import { ABI as StableSwapABI } from "../types/web3-v1-contracts/ISwap";
 import StableSwapABI from "../tools/abi/StableSwap.json";
-import { ABI as ERC20ABI } from "../types/web3-v1-contracts/ERC20";
-import { ABI as BalanceV1ABI } from "../types/web3-v1-contracts/ISymmetricSwap";
-import { ABI as XYeqKABI } from "../types/web3-v1-contracts/IUniswapV2Pair";
 import type { Address, Pair } from "./pair";
 
 export const initPairsAndFilterByWhitelist = async (

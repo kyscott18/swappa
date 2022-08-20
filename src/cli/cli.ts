@@ -7,9 +7,9 @@ import BigNumber from "bignumber.js";
 import commander from "commander";
 import Web3 from "web3";
 
+import { abi as IERC20ABI } from "../../build/contracts/IERC20.json";
 import { address as swappaRouterV1Address } from "../../tools/deployed/mainnet.SwappaRouterV1.addr.json";
-import type { Ierc20 } from "../../types/web3-v1-contracts/IERC20";
-import { ABI as Ierc20ABI } from "../../types/web3-v1-contracts/IERC20";
+import type { IERC20 } from "../generated/IERC20";
 import type { Registry } from "../registry";
 import {
   mainnetRegistryMobius,
@@ -188,9 +188,9 @@ async function main() {
   if (from && routes.length > 0) {
     const route = routes[0];
     const inputTKN = new kit.web3.eth.Contract(
-      Ierc20ABI,
+      IERC20ABI,
       route.path[0]
-    ) as unknown as Ierc20;
+    ) as unknown as IERC20;
 
     const allowance = await inputTKN.methods
       .allowance(from, manager.routerAddr)

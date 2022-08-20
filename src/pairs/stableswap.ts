@@ -3,11 +3,11 @@ import BigNumber from "bignumber.js";
 import type Web3 from "web3";
 import { encodePacked } from "web3-utils";
 
+import { abi as Erc20ABI } from "../../build/contracts/ERC20.json";
+import { abi as SwapABI } from "../../build/contracts/ISwap.json";
 import { address as pairStableSwapAddress } from "../../tools/deployed/mainnet.PairStableSwap.addr.json";
-import type { Erc20 } from "../../types/web3-v1-contracts/ERC20";
-import { ABI as Erc20ABI } from "../../types/web3-v1-contracts/ERC20";
-import type { ISwap } from "../../types/web3-v1-contracts/ISwap";
-import { ABI as SwapABI } from "../../types/web3-v1-contracts/ISwap";
+import type { ERC20 } from "../generated/ERC20";
+import type { ISwap } from "../generated/ISwap";
 import type { MultiCallPayload } from "../multicall";
 import { convertResultToString } from "../multicall";
 import type {
@@ -75,11 +75,11 @@ export class PairStableSwap extends Pair {
     const erc20A = new this.web3.eth.Contract(
       Erc20ABI,
       tokenA
-    ) as unknown as Erc20;
+    ) as unknown as ERC20;
     const erc20B = new this.web3.eth.Contract(
       Erc20ABI,
       tokenB
-    ) as unknown as Erc20;
+    ) as unknown as ERC20;
     const [decimalsA, decimalsB] = await Promise.all([
       erc20A.methods.decimals().call(),
       erc20B.methods.decimals().call(),

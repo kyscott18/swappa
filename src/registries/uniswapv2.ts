@@ -2,8 +2,8 @@ import { concurrentMap } from "@celo/utils/lib/async";
 import type BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
-import type { IUniswapV2Factory } from "../../types/web3-v1-contracts/IUniswapV2Factory";
-import { ABI as FactoryABI } from "../../types/web3-v1-contracts/IUniswapV2Factory";
+import { abi as FactoryABI } from "../../build/contracts/IUniswapV2Factory.json";
+import type { IUniswapV2Factory } from "../generated/IUniswapV2Factory";
 import type { Address, Pair } from "../pair";
 import { PairUniswapV2 } from "../pairs/uniswapv2";
 import { Registry } from "../registry";

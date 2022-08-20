@@ -1,9 +1,9 @@
 import BigNumber from "bignumber.js";
 import type Web3 from "web3";
 
+import { abi as SwapABI } from "../../build/contracts/IOpenSumSwap.json";
 import { address as pairOpenSumSwapAddress } from "../../tools/deployed/mainnet.PairOpenSumSwap.addr.json";
-import type { IOpenSumSwap } from "../../types/web3-v1-contracts/IOpenSumSwap";
-import { ABI as SwapABI } from "../../types/web3-v1-contracts/IOpenSumSwap";
+import type { IOpenSumSwapInterface as IOpenSumSwap } from "../generated/IOpenSumSwap";
 import type { MultiCallPayload } from "../multicall";
 import type { Address, BigNumberString, Snapshot } from "../pair";
 import { Pair } from "../pair";

@@ -1,22 +1,22 @@
 import { concurrentMap } from "@celo/utils/lib/async";
 import type Web3 from "web3";
 
-import type { IbRegistry } from "../../types/web3-v1-contracts/IBRegistry";
-import { ABI as IbRegistryABI } from "../../types/web3-v1-contracts/IBRegistry";
+import { ABI as IbRegistryABI } from "../../build/contracts/IBRegistry.json";
+import type { IBRegistry } from "../generated/IBRegistry";
 import type { Address, Pair } from "../pair";
 import { PairBPool } from "../pairs/bpool";
 import { Registry } from "../registry";
 import { initPairsAndFilterByWhitelist } from "../utils";
 
 export class RegistryBalancer extends Registry {
-  private registry: IbRegistry;
+  private registry: IBRegistry;
 
   constructor(name: string, private web3: Web3, registryAddr: Address) {
     super(name);
     this.registry = new web3.eth.Contract(
       IbRegistryABI,
       registryAddr
-    ) as unknown as IbRegistry;
+    ) as unknown as IBRegistry;
   }
 
   findPairs = async (tokenWhitelist: Address[]): Promise<Pair[]> => {

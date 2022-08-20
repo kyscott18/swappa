@@ -1,11 +1,11 @@
 import type { ContractKit } from "@celo/contractkit";
 import type BigNumber from "bignumber.js";
 
+import { abi as LendingPoolABI } from "../../build/contracts/ILendingPool.json";
+import { abi as LendingPoolAddressProviderABI } from "../../build/contracts/ILendingPoolAddressesProvider.json";
 import { address as pairATokenAddress } from "../../tools/deployed/mainnet.PairAToken.addr.json";
-import type { ILendingPool } from "../../types/web3-v1-contracts/ILendingPool";
-import { ABI as LendingPoolABI } from "../../types/web3-v1-contracts/ILendingPool";
-import type { ILendingPoolAddressesProvider } from "../../types/web3-v1-contracts/ILendingPoolAddressesProvider";
-import { ABI as LendingPoolAddressProviderABI } from "../../types/web3-v1-contracts/ILendingPoolAddressesProvider";
+import type { ILendingPool } from "../generated/ILendingPool";
+import type { ILendingPoolAddressesProvider } from "../generated/ILendingPoolAddressesProvider";
 import type { MultiCallPayload } from "../multicall";
 import type { Address, Snapshot } from "../pair";
 import { Pair } from "../pair";

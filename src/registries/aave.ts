@@ -1,9 +1,9 @@
 import type { ContractKit } from "@celo/contractkit";
 
-import type { ILendingPool } from "../../types/web3-v1-contracts/ILendingPool";
-import { ABI as LendingPoolABI } from "../../types/web3-v1-contracts/ILendingPool";
-import type { ILendingPoolAddressesProvider } from "../../types/web3-v1-contracts/ILendingPoolAddressesProvider";
-import { ABI as LendingPoolAddressProviderABI } from "../../types/web3-v1-contracts/ILendingPoolAddressesProvider";
+import { abi as LendingPoolABI } from "../../build/contracts/ILendingPool.json";
+import { abi as LendingPoolAddressProviderABI } from "../../build/contracts/ILendingPoolAddressesProvider.json";
+import type { ILendingPool } from "../generated/ILendingPool";
+import type { ILendingPoolAddressesProvider } from "../generated/ILendingPoolAddressesProvider";
 import type { Address } from "../pair";
 import { PairAToken, ReserveCELO } from "../pairs/atoken";
 import { Registry } from "../registry";
